@@ -8,10 +8,15 @@ public class Crime {
     private UUID id;
     private String title;
     private Date date;
-    private boolean isSolved;
+    private boolean solved;
+    private String suspect;
 
     public Crime() {
-        id = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public Crime(UUID id) {
+        this.id = id;
         date = new Date();
     }
 
@@ -36,10 +41,22 @@ public class Crime {
     }
 
     public boolean isSolved() {
-        return isSolved;
+        return solved;
     }
 
     public void setSolved(boolean solved) {
-        isSolved = solved;
+        this.solved = solved;
+    }
+
+    public String getSuspect() {
+        return suspect;
+    }
+
+    public void setSuspect(String suspect) {
+        this.suspect = suspect;
+    }
+
+    public String getPhotoFilename() {
+        return "IMG_" + getId().toString() + ".jpg";
     }
 }
